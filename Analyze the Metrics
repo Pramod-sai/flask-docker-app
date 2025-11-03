@@ -1,0 +1,38 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load CSV files
+df = pd.read_csv("data/metrics_timeseries.csv", parse_dates=["timestamp"])
+summary = pd.read_csv("data/metrics_hourly_summary.csv", parse_dates=["hour"])
+
+# Basic overview
+print(df.head())
+print(df.describe())
+
+# Plot latency trends
+plt.figure(figsize=(10,5))
+plt.plot(df["timestamp"], df["latency_ms_avg"])
+plt.title("Average Latency Over Time")
+plt.xlabel("Timestamp")
+plt.ylabel("Latency (ms)")
+plt.show()
+
+
+
+
+
+
+Shell Commands to Explore the Data:
+
+# Preview first 5 lines of the dataset
+head -n 5 data/metrics_timeseries.csv
+
+# Count total records
+wc -l data/metrics_timeseries.csv
+
+# View only CPU usage and memory columns
+cut -d',' -f5,6 data/metrics_timeseries.csv | head
+
+Combine with Docker Metrics:
+
+docker stats flask_redis_web --no-stream --format "table {{.Container}}\t{{.CPUPerc}}\t{{.MemUsage}}"
