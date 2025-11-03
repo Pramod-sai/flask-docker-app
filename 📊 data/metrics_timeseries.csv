@@ -1,0 +1,13 @@
+Purpose:
+Contains simulated minute-level performance metrics collected from the Flask + Redis containers.
+Each row represents one minute of activity during a 6-hour observation window.
+
+Columns Explained:
+
+Column	Type	Description
+timestamp	datetime	Exact minute of observation
+requests_per_minute	integer	Number of HTTP requests served that minute
+latency_ms_avg	float	Average request latency in milliseconds
+error_rate_percent	float	Percentage of failed requests (0–2%)
+cpu_percent	float	Average CPU usage of the container
+memory_mb	float	Memory consumption (in MB) of the container
