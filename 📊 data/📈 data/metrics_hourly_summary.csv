@@ -1,0 +1,19 @@
+Purpose:
+Hourly roll-up of the raw metrics for quick reporting and trend comparison.
+
+Columns Explained:
+
+Column	Type	Description
+hour	datetime	Start of the hour window
+req_total	integer	Total requests processed in that hour
+latency_p50	float	Median latency (50th percentile)
+latency_p95	float	High-end latency (95th percentile)
+error_avg_pct	float	Average error percentage
+cpu_avg	float	Mean CPU utilization
+mem_max	float	Peak memory usage in that hour
+
+Usage Ideas:
+
+Visualize latency percentiles by hour
+Monitor resource consumption trends
+Evaluate how traffic impacts performance
